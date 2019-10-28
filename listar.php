@@ -1,6 +1,10 @@
 <?php 
 	require_once 'conexao.php';
 
+	$cd = isset($_POST['cd_usuario']) ? $_POST['cd_usuario'] : 0;
+	$hash = isset($_POST['cd_hash_login']) ? $_POST['cd_hash_login'] : null;
+	verificarPermissao($cd, $hash);
+
 	if(isset($_POST['listarAdmin'])){
 
 		$cd = isset($_POST['cd']) ? $_POST['cd']: null;
