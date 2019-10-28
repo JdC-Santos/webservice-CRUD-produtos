@@ -1,15 +1,12 @@
 <?php 
-	require_once 'conexao.php';
+	require_once 'functions.php';
 
 	if(isset($_POST['user']) && isset($_POST['pw'])){
 		
-		$user = addslashes($_POST['user']);
-		$pw = md5($_POST['pw']);
+		$usuarios = listaAdmin($_POST['user'],$_POST['pw']);
 
-		$sql = "SELECT * FROM 
-					usuario 
-				WHERE 
-					nm_login = '$user' 
-				AND 
-					cd_senha = '$pw' LIMIT 1";
+		if(is_array($usuarios) && count($usuarios) == 1){
+			$res = gerarHashLogin($usuarios[0]);
+			echo json_encode($res);
+		}
 	}

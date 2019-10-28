@@ -4,6 +4,7 @@
 	$user = 'jdc_santos';
 	$pw = '@webservice';
 	$db = 'jdc_webservice';
+	$conn = null;
 
 	try{
 		$conn = new PDO("mysql:host=$servername;dbname=$db", $user, $pw);
