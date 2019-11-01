@@ -3,8 +3,6 @@
 	
 	date_default_timezone_set('America/Sao_Paulo');
 
-	error_reporting(E_ALL & ~E_NOTICE);
-
 	if(empty($GLOBALS['conn'])){
 		echo "sem conexao com o banco de dados!";
 		exit;
