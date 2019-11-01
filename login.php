@@ -1,9 +1,9 @@
 <?php 
 	require_once 'functions.php';
 
-	if(isset($_POST['user']) && isset($_POST['pw'])){
+	if(isset($_GET['user']) && isset($_GET['pw'])){
 		
-		$usuarios = listaAdmin($_POST['user'],$_POST['pw']);
+		$usuarios = listaAdmin($_GET['user'],$_GET['pw']);
 
 		if(is_array($usuarios) && count($usuarios) == 1){
 			$res = gerarHashLogin($usuarios[0]);
