@@ -8,5 +8,9 @@
 		if(is_array($usuarios) && count($usuarios) == 1){
 			$res = gerarHashLogin($usuarios[0]);
 			echo json_encode($res);
+		}else{
+			$json['status'] = 0;
+			$json['msg'] = "Usuário ou senha incorretos";
+			echo json_encode($json);
 		}
 	}
