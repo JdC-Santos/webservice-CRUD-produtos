@@ -62,15 +62,14 @@
 	function listarAdmin($user = null, $pw = null, int $cd = null, $nome = null, $email = null){
 
 		$user = addslashes($user);
-		$pw = md5($pw);
-		$nome = addslashes($nome);
+				$nome = addslashes($nome);
 		$email = addslashes($email);
 
 		$sql  = "SELECT cd_usuario, nm_usuario, nm_email,nm_login,cd_nivel_acesso, cd_hash_login ";
 		$sql .=	"FROM usuario WHERE cd_usuario > 0";
 
 		if(!empty($user)) $sql .= " AND nm_login = '".$user."' ";
-		if(!empty($pw)) $sql .= " AND cd_senha = '".$pw."' ";
+		if(!empty($pw)) $sql .= " AND cd_senha = '".md5($pw)."' ";
 		if(!empty($cd))	$sql .= " AND cd_usuario = ".$cd;
 		if(!empty($nome)) $sql .= " AND nm_usuario LIKE '%".$nome."%' ";
 		if(!empty($email)) $sql .= " AND nm_email = '".$email."' ";
