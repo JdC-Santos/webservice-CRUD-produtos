@@ -1,13 +1,13 @@
 <?php 
 	require_once 'functions.php';
 
-	if(isset($_POST['params'])){
-		print_r($_POST['params']);
-		$res = json_decode($_POST['params'])
-		print_r($res);
-		echo "valor: ".$res->validar;
-		echo "2valor: ".$res['validar'];
-	}
+	// if(isset($_POST['params'])){
+	// 	print_r($_POST['params']);
+	// 	$res = json_decode($_POST['params'])
+	// 	print_r($res);
+	// 	echo "valor: ".$res->validar;
+	// 	echo "2valor: ".$res['validar'];
+	// }
 
 
 	if(isset($_POST['user']) && isset($_POST['pw']) ){
