@@ -17,4 +17,5 @@
 
 	if(isset($_POST['validar'])){
 		echo $_POST['validar'];
+		echo "okokok";
 	}
