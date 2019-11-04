@@ -5,9 +5,9 @@
 	$hash = isset($_POST['cd_hash_login']) ? $_POST['cd_hash_login'] : null;
 	verificarPermissao($cd, $hash);
 
-	if(isset($_GET['excluir']) && $_GET['excluir'] == "adm" && isset($_GET['cd'])){
+	if(isset($_POST['excluir']) && $_POST['excluir'] == "adm" && isset($_POST['cd'])){
 	
-		if(removerAdmin($_GET['cd'])){
+		if(removerAdmin($_POST['cd'])){
 			$json['status'] = 1;
 			$json['msg'] = 'Administrador excluido com sucesso!';
 		}else{
@@ -17,9 +17,9 @@
 		echo json_encode($json);
 	}
 
-	if(isset($_GET['excluir']) && $_GET['excluir'] == "prod" && isset($_GET['cd'])){
+	if(isset($_POST['excluir']) && $_POST['excluir'] == "prod" && isset($_POST['cd'])){
 		
-		if(removerProduto($_GET['cd'])){
+		if(removerProduto($_POST['cd'])){
 			$json['status'] = 1;
 			$json['msg'] = 'Produto excluido com sucesso!';
 		}else{

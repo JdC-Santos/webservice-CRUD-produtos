@@ -166,7 +166,9 @@
 		$sql .= " AND cd_hash_login IS NOT NULL";
 
 		if(!is_array(select($sql))){
-			echo "sem permissao";
+			$json['status'] = 2;
+			$json['error'] = "denied";
+			echo json_encode($json);
 			exit;
 		}
 	}
