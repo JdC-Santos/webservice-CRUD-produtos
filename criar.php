@@ -10,7 +10,7 @@
 		$nome = isset($_POST['nome']) ? addslashes($_POST['nome']) : false;
 		$login = isset($_POST['login']) ? addslashes($_POST['login']) : false;
 		$email = isset($_POST['email']) ? addslashes($_POST['email']) : false;
-		$senha = isset($_POST['senha']) ? md5($_POST['senha']) : false;
+		$senha = isset($_POST['pw']) ? md5($_POST['pw']) : false;
 		$nivel = isset($_POST['nivel']) ? addslashes($_POST['nivel']) : false;
 		
 		if($nome && $login && $email && $senha && $nivel){
