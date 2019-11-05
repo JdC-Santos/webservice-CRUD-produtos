@@ -5,7 +5,7 @@
 	$hash = isset($_POST['cd_hash_login']) ? $_POST['cd_hash_login'] : null;
 	verificarPermissao($cd, $hash);
 
-	if(isset($_POST['criarAdmin'])){
+	if(isset($_POST['criar']) && $_POST['criar'] == "adm"){
 
 		$nome = isset($_POST['nome']) ? addslashes($_POST['nome']) : false;
 		$login = isset($_POST['login']) ? addslashes($_POST['login']) : false;
@@ -25,7 +25,7 @@
 		echo json_encode($json);
 	}
 
-	if(isset($_POST['criarProduto'])){
+	if(isset($_POST['criar']) && $_POST['criar'] == "prod"){
 
 		$nome = isset($_POST['nome']) ? addslashes($_POST['nome']) : false;
 		$qtd = isset($_POST['qtd']) ? addslashes($_POST['qtd']) : false;
