@@ -5,13 +5,13 @@
 	$hash = isset($_POST['cd_hash_login']) ? $_POST['cd_hash_login'] : null;
 	verificarPermissao($cd, $hash);
 
-	if(isset($_POST['editarAdmin']) && isset($_POST['cd'])){
+	if(isset($_POST['editar']) && $_POST['editar'] == "adm" && isset($_POST['cd'])){
 
 		$cd = $_POST['cd'];
 		$nome  = isset($_POST['nome'])  ? addslashes($_POST['nome']) : false;
 		$login = isset($_POST['login']) ? addslashes($_POST['login']) : false;
 		$email = isset($_POST['email']) ? addslashes($_POST['email']) : false;
-		$senha = isset($_POST['senha']) ? $_POST['senha'] : false;
+		$senha = isset($_POST['pw']) ? $_POST['pw'] : false;
 		$nivel = isset($_POST['nivel']) ? addslashes($_POST['nivel']) : false;
 
 		if(editarAdmin($cd, $nome, $login, $email, $senha, $nivel)){
@@ -24,7 +24,7 @@
 		echo json_encode($json);
 	}
 
-	if(isset($_POST['editarProduto']) && isset($_POST['cd'])){
+	if(isset($_POST['editar']) && $_POST['editar'] == "prod" && isset($_POST['cd'])){
 
 		$cd = $_POST['cd'];
 		$nome  = isset($_POST['nome'])  ? addslashes($_POST['nome']) : false;
