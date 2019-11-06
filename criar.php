@@ -21,6 +21,9 @@
 				$json['status'] = 0;
 				$json['msg'] = 'Erro: não foi possivel cadastrar o administrador';
 			}
+		}else{
+			$json['status'] = 0;
+			$json['msg'] = 'Erro: campos incorretos';
 		}
 		echo json_encode($json);
 	}
@@ -34,7 +37,7 @@
 		$foto = isset($_FILES['foto']) ? $_FILES['foto'] : false;
 		$cod_barras = isset($_POST['cod_barras']) ? addslashes($_POST['cod_barras']) : false;
 
-		if($nome && $qtd && $status && $valor && $foto && $cod_barras){
+		if($nome && $qtd && $status && $valor && $cod_barras){
 			if(criarProduto($nome, $qtd, $status, $valor, $foto, $cod_barras)){
 				$json['status'] = 1;
 				$json['msg'] = 'Produto cadastrado com sucesso!';
@@ -42,6 +45,9 @@
 				$json['status'] = 0;
 				$json['msg'] = 'Erro: não foi possivel cadastrar o produto';
 			}
+		}else{
+			$json['status'] = 0;
+			$json['msg'] = 'Erro: campos incorretos';
 		}
 		echo json_encode($json);
 	}
