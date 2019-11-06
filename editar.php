@@ -32,6 +32,7 @@
 		$status = isset($_POST['status']) ? addslashes($_POST['status']) : false;
 		$valor = isset($_POST['valor']) ? $_POST['valor'] : false;
 		$cod_barras = isset($_POST['cod_barras']) ? $_POST['cod_barras'] : false;
+		$foto = isset($_FILES['foto'])? $_FILES['foto']: null;
 
 		if(editarProduto($cd, $nome, $qtd, $status, $valor, $foto, $cod_barras)){
 			$json['status'] = 1;
