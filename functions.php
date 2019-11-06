@@ -74,8 +74,6 @@
 		if(!empty($nome)) $sql .= " AND nm_usuario LIKE '%".$nome."%' ";
 		if(!empty($email)) $sql .= " AND nm_email = '".$email."' ";
 
-		echo $sql;
-
 		return select($sql);
 	}
 
