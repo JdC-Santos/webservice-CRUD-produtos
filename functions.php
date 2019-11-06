@@ -48,15 +48,16 @@
 
 		$sql 	= "INSERT INTO produto ($cols)";
 
-		$foto = salvarFoto($foto);
-		
 		if(!empty($foto)){
-			$created_at = date('Y-m-d H:i:s');
-			$vals 	= "null,'$nome','$qtd','$status','$valor','$foto','$cod_barras','$created_at'";
-			$sql   .= " VALUES ($vals)";
+			$foto = salvarFoto($foto);	
+		}		
+			
+		$created_at = date('Y-m-d H:i:s');
+		$vals 	= "null,'$nome','$qtd','$status','$valor','$foto','$cod_barras','$created_at'";
+		$sql   .= " VALUES ($vals)";
 
-			return query($sql);	
-		}
+		return query($sql);	
+		
 	}
 	
 	function listarAdmin($user = null, $pw = null, int $cd = null, $nome = null, $email = null){
@@ -111,7 +112,9 @@
 
 		$prod = listarProdutos($cd)[0];
 
-		$foto = salvarFoto($foto, $prod['ds_foto']);
+		if(!empty($foto)){
+			$foto = salvarFoto($foto, $prod['ds_foto']);
+		}
 
 		$sql = "UPDATE produto SET cd_produto = ".$cd;
 
