@@ -13,4 +13,8 @@
 			$json['msg'] = "Usuário ou senha incorretos";
 			echo json_encode($json);
 		}
+	}else{
+		$json['status'] = 0;
+		$json['msg'] = "campos incorretos";
+		echo json_encode($json);
 	}
